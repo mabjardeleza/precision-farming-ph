@@ -40,7 +40,7 @@ class Barn(TimeStampedModel):
     reference_id = models.UUIDField(default=uuid.uuid4, unique=True)
 
     def __str__(self):
-        return self.reference_id
+        return str(self.reference_id)
 
     def get_aggregated_sensor_data(self):
         return self.sensordatapoint_set.aggregate(
