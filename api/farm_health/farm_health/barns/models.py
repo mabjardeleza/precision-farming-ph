@@ -91,7 +91,7 @@ class Sensor(TimeStampedModel):
     barn = models.ForeignKey(Barn, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.reference_id
+        return str(self.reference_id)
 
 
 class SensorDataPoint(TimeStampedModel):
