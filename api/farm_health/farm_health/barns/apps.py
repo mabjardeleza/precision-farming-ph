@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class SensorsConfig(AppConfig):
+class BarnsConfig(AppConfig):
     name = 'farm_health.barns'
