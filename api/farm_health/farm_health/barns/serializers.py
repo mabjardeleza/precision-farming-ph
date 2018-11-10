@@ -1,4 +1,3 @@
-from django.conf import settings
 from rest_framework import serializers
 
 from farm_health.barns import models
@@ -20,6 +19,12 @@ class SensorSerializer(serializers.ModelSerializer):
             'id',
             'reference_id',
         )
+
+
+class BarnStatusSerializer(serializers.Serializer):
+    temperature = serializers.BooleanField()
+    humidity = serializers.BooleanField()
+    air_quality = serializers.BooleanField()
 
 
 class BarnDataSerializer(serializers.ModelSerializer):
@@ -47,7 +52,18 @@ class BarnDataSerializer(serializers.ModelSerializer):
             return 'unknown'
         else:
             # Complex logic for determining status!
-            temp_threshold = settings.get('THRESHOLD_TEMPERATURE', None) or barn.sensor
+            thresholds = models.Thresholds.load()
+            statuses = {}
+            if sensor_data.get('aggregate_temperature', None):
+                statuses['temperature'] = thresholds.temperature_minimum <= sensor_data.get('aggregate_temperature') <= thresholds.temperature_maximum
+
+            if sensor_data.get('aggregate_humidity', None):
+                statuses['humidity'] = thresholds.humidity_minimum <= sensor_data.get('aggregate_humidity') <= thresholds.humidity_maximum
+
+            if sensor_data.get('aggregate_air_quality', None):
+                statuses['air_quality'] = thresholds.air_quality_minimum <= sensor_data.get('aggregate_air_quality') <= thresholds.air_quality_maximum
+
+            return BarnStatusSerializer(statuses).data
 
     def get_aggregate_temperature(self, barn):
         return barn.get_aggregated_sensor_data()['aggregate_temperature']
