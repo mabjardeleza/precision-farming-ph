@@ -25,6 +25,7 @@ class BarnStatusSerializer(serializers.Serializer):
     temperature = serializers.BooleanField()
     humidity = serializers.BooleanField()
     air_quality = serializers.BooleanField()
+    overall = serializers.BooleanField()
 
 
 class BarnDataSerializer(serializers.ModelSerializer):
@@ -54,14 +55,20 @@ class BarnDataSerializer(serializers.ModelSerializer):
             # Complex logic for determining status!
             thresholds = models.Thresholds.load()
             statuses = {}
+            overall = True
             if sensor_data.get('aggregate_temperature', None):
                 statuses['temperature'] = thresholds.temperature_minimum <= sensor_data.get('aggregate_temperature') <= thresholds.temperature_maximum
+                overall = False if not statuses['temperature'] else overall
 
             if sensor_data.get('aggregate_humidity', None):
                 statuses['humidity'] = thresholds.humidity_minimum <= sensor_data.get('aggregate_humidity') <= thresholds.humidity_maximum
+                overall = False if not statuses['humidity'] else overall
 
             if sensor_data.get('aggregate_air_quality', None):
                 statuses['air_quality'] = thresholds.air_quality_minimum <= sensor_data.get('aggregate_air_quality') <= thresholds.air_quality_maximum
+                overall = False if not statuses['air_quality'] else overall
+
+            statuses['overall'] = overall
 
             return BarnStatusSerializer(statuses).data
 
