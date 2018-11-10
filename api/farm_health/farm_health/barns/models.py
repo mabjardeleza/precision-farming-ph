@@ -13,26 +13,28 @@ class Barn(TimeStampedModel):
 
 
 class PigQuerySet(models.QuerySet):
-    def alive(self, barn):
-        return self.filter(barn=barn, status=Pig.STATUS_CHOICES.alive)
+    def alive_in_barn(self, barn):
+        return self.filter(barn=barn, alive=True)
 
-    def dead(self, barn):
-        return self.filter(barn=barn, status=Pig.STATUS_CHOICES.dead)
+    def dead_in_barn(self, barn):
+        return self.filter(barn=barn, alive=False)
+
+    def alive(self):
+        return self.filter(alive=True)
+
+    def dead(self):
+        return self.filter(alive=False)
 
     def in_barn(self, barn):
         return self.filter(barn=barn)
 
 
 class Pig(TimeStampedModel):
-    STATUS_CHOICES = Choices(
-        (1, 'alive', 'Alive'),
-        (2, 'dead', 'Dead'),
-    )
+    barn = models.ForeignKey(Barn, on_delete=models.CASCADE)
+    alive = models.BooleanField(default=True)
+    death_date = models.DateTimeField(null=True, blank=True)
 
     objects = PigQuerySet.as_manager()
-
-    barn = models.ForeignKey(Barn, on_delete=models.CASCADE)
-    status = models.PositiveIntegerField(choices=STATUS_CHOICES, default=STATUS_CHOICES.alive)
 
 
 class Sensor(TimeStampedModel):
