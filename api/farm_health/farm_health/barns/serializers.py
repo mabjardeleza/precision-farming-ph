@@ -42,6 +42,7 @@ class BarnDataSerializer(serializers.ModelSerializer):
             'aggregate_temperature',
             'aggregate_humidity',
             'aggregate_air_quality',
+            'status',
         )
 
     def get_status(self, barn):
