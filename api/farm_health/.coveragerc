@@ -1,0 +1,5 @@
+[run]
+include = farm_health/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
