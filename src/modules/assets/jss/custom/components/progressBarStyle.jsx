@@ -8,7 +8,7 @@ const progressBarStyle = {
     backgroundColor: "lightgray"
   },
   progressBarFiller: {
-    background: "#1DA598",
+    background: "#76C1CF",
     height: "100%",
     borderRadius: "inherit",
     transition: "width .2s ease-in",
