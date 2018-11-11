@@ -87,3 +87,11 @@ class BarnDataSerializer(serializers.ModelSerializer):
 
     def get_aggregate_air_quality(self, barn):
         return barn.get_aggregated_sensor_data()['aggregate_air_quality']
+
+
+class OverviewSerializer(serializers.Serializer):
+    health = serializers.SerializerMethodField()
+    dailies = serializers.DictField(
+        child=serializers.BooleanField()
+    )
+    todos = serializers.SerializerMethodField()
