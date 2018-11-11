@@ -63,13 +63,7 @@ function TableList(props) {
             />
           </CardHeader>
           <CardBody>
-            <h4 className={classes.cardTitle}>Daily Sales</h4>
-            <p className={classes.cardCategory}>
-              <span className={classes.successText}>
-                <ArrowUpward className={classes.upArrowCardCategory} /> 55%
-              </span>{" "}
-              increase in today sales.
-            </p>
+            <h4 className={classes.cardTitle}>Temperature (Today)</h4>
           </CardBody>
         </Card>
       </GridItem>
@@ -86,8 +80,7 @@ function TableList(props) {
             />
           </CardHeader>
           <CardBody>
-            <h4 className={classes.cardTitle}>Email Subscriptions</h4>
-            <p className={classes.cardCategory}>Last Campaign Performance</p>
+            <h4 className={classes.cardTitle}>Average humidity (monthly)</h4>
           </CardBody>
         </Card>
       </GridItem>

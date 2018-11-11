@@ -7,7 +7,7 @@ import progressBarStyle from "../../assets/jss/custom/components/progressBarStyl
 const ProgressBar = ({ percentage, classes }) => {
   return (
     <div style={{ position: 'relative' }}>
-      <div style={{ position: 'absolute', left: `${percentage}%`, top: '-125%' }}>You're doing great!</div>
+      <div style={{ position: 'absolute', left: `${percentage}%`, top: '-125%' }}>Action required!</div>
       <div className={classes.progressBar}>
         <div
           className={classes.progressBarFiller}
