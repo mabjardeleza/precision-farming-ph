@@ -16,11 +16,11 @@ const cardImageStyles = {
   media: {
     // ⚠️ object-fit is not supported by IE 11.
     objectFit: "cover",
-    width: '100%'
+    width: "100%"
   }
 };
 
-const CardImage = ({ classes, title, image }) => {
+const CardImage = ({ classes, title, image, indicator }) => {
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -33,9 +33,12 @@ const CardImage = ({ classes, title, image }) => {
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="display1" component="h4">
+          <Typography gutterBottom variant="h5" component="h4">
             {title}
           </Typography>
+          {indicator ? (
+            <div style={{ color: "#C33760" }}>Needs attention!</div>
+          ) : null}
         </CardContent>
       </CardActionArea>
     </Card>

@@ -55,6 +55,8 @@ import {
   barnStatusActions
 } from "../../actions";
 
+import { OVERVIEW } from "../../mocks";
+
 const FIELDS = [
   {
     key: "aggregatedTemperature",
@@ -135,7 +137,7 @@ class Dashboard extends React.Component {
                 <Tasks
                   checkedIndexes={[0]}
                   tasksIndexes={[0, 1]}
-                  tasks={website}
+                  tasks={OVERVIEW.daily}
                 />
               </CardBody>
             </Card>
@@ -149,7 +151,7 @@ class Dashboard extends React.Component {
                 <Tasks
                   checkedIndexes={[0, 3]}
                   tasksIndexes={[0, 1, 2, 3]}
-                  tasks={bugs}
+                  tasks={OVERVIEW.todos}
                 />
               </CardBody>
             </Card>

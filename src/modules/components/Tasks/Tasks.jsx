@@ -8,6 +8,8 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 // @material-ui/icons
 import CheckCircle from "@material-ui/icons/CheckCircle";
+// @material-ui/icons
+import Close from "@material-ui/icons/Close";
 // core components
 import tasksStyle from "../../assets/jss/material-dashboard-react/components/tasksStyle.jsx";
 
@@ -35,16 +37,14 @@ class Tasks extends React.Component {
     return (
       <Table className={classes.table}>
         <TableBody>
-          {tasksIndexes.map(value => (
-            <TableRow key={value} className={classes.tableRow}>
+          {tasks.map(task => (
+            <TableRow key={task.id} className={classes.tableRow}>
               <TableCell className={classes.tableCell}>
-                {this.state.checked.indexOf(value) !== -1 ? (
+                {task.finish ? (
                   <CheckCircle style={{ color: "rgb(55, 195, 131)" }} />
-                ) : null}
+                ) : <Close />}
               </TableCell>
-              <TableCell className={classes.tableCell}>
-                {tasks[value]}
-              </TableCell>
+              <TableCell className={classes.tableCell}>{task.title}</TableCell>
             </TableRow>
           ))}
         </TableBody>

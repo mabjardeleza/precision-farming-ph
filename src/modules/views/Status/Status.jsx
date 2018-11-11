@@ -67,7 +67,7 @@ class Status extends Component {
               <GridItem xs={6} sm={6} md={6} key={barn.id}>
                 <div className={classes.cardContainer}>
                   <Link to={`/status-detail/${barn.id}`}>
-                    <CardImage title={`Barn ${barn.barn}`} image={barn.image} />
+                    <CardImage title={`Barn ${barn.barn}`} image={barn.image} indicator={barn.indicator} />
                   </Link>
                 </div>
               </GridItem>

@@ -6,37 +6,31 @@ export const OVERVIEW = {
     },
     daily: [
       {
-        title: 'Sign contract for "What are conference organizers afraid of?"',
-        finish: true,
+        title: "Temperature",
+        finish: false,
         id: 1
       },
       {
-        title: "Lines From Great Russian Literature? Or E-mails From My Boss?",
-        finish: false,
+        title: "Humidity",
+        finish: true,
         id: 2
+      },
+      {
+        title: "Air Quality",
+        finish: true,
+        id: 3
       }
     ],
     todos: [
       {
-        title: 'Sign contract for "What are conference organizers afraid of?"',
-        finish: true,
+        title: "Check temperature for Barn 1",
+        finish: false,
         id: 1
       },
       {
-        title: "Lines From Great Russian Literature? Or E-mails From My Boss?",
+        title: "Check temperature for Barn 2",
         finish: false,
         id: 2
-      },
-      {
-        title:
-          "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-        finish: false,
-        id: 3
-      },
-      {
-        title: "Create 4 Invisible User Experiences you Never Knew About",
-        finish: true,
-        id: 4
       }
     ]
   }),

@@ -52,33 +52,30 @@ class StatusDetail extends Component {
               alt="Contemplative Reptile"
               className={classes.media}
               height="300"
-              image="https://aussiepigfarmers.com.au/wp-content/uploads/2015/11/content-relaxed-animals-in-barn-rared-environment1.jpg"
+              image={barn ? require(`modules/assets/img/${barn.image}`) : require("modules/assets/img/hog1.jpg")}
               title="Contemplative Reptile"
             />
           </CardActionArea>
           <CardContent>
             {barn ? (
               <div>
+                {barn.indicator ? (
+                  <div style={{ color: "#C33760" }}>Needs attention!</div>
+                ) : null}
                 <Typography variant="h5" component="h2" className={classes.header}>
                   Barn {barn.barn} Status
                 </Typography>
                 <Typography gutterBottom variant="h5" component="h4">
                   <b>{barn.pigCount}</b> Pigs
                 </Typography>
-                {/* <Typography gutterBottom variant="h5" component="h4">
-                  <b>{barn.mortalityRate}%</b> Mortality Rate
-                </Typography> */}
-                {/* <Typography gutterBottom variant="h5" component="h4">
-                  <b>{barn.feedConsumption}</b> Feed Consumption
-                </Typography> */}
                 <Typography gutterBottom variant="h5" component="h4">
-                  <b>{barn.aggregatedTemperature}</b> C Average Temperature
+                  <b>{barn.aggregatedTemperature}</b> °C Average Temperature
                 </Typography>
                 <Typography gutterBottom variant="h5" component="h4">
                   <b>{barn.aggregatedHumidity}</b> Humidity
                 </Typography>
                 <Typography gutterBottom variant="h5" component="h4">
-                  <b>{barn.aggregatedAirQuality}</b>mg / cubic meter Air Quality
+                  <b>{barn.aggregatedAirQuality}</b>(mg / cubic meter) Air Quality
                 </Typography>
               </div>
             ) : null}

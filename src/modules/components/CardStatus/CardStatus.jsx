@@ -41,13 +41,13 @@ const CardStatus = ({ classes, data }) => {
             <b>{data.mortalityRate}%</b> Mortality Rate
           </Typography> */}
           <Typography gutterBottom variant="subheading" component="h4">
-            <b>{data.aggregatedTemperature}</b> C Average Temperature
+            <b>{data.aggregatedTemperature}</b> °C Average Temperature
           </Typography>
           <Typography gutterBottom variant="subheading" component="h4">
             <b>{data.aggregatedHumidity}</b> Humidity
           </Typography>
           <Typography gutterBottom variant="subheading" component="h4">
-            <b>{data.aggregatedAirQuality}</b>mg / cubic meter Air Quality
+            <b>{data.aggregatedAirQuality}</b>(mg / cubic meter) Air Quality
           </Typography>
         </CardContent>
       </CardActionArea>
