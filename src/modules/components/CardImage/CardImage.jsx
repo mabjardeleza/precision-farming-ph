@@ -11,15 +11,16 @@ import Typography from "@material-ui/core/Typography";
 
 const cardImageStyles = {
   card: {
-    maxWidth: 445
+    width: 445
   },
   media: {
     // ⚠️ object-fit is not supported by IE 11.
-    objectFit: "cover"
+    objectFit: "cover",
+    width: '100%'
   }
 };
 
-const CardImage = ({ classes, title }) => {
+const CardImage = ({ classes, title, image }) => {
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -28,7 +29,7 @@ const CardImage = ({ classes, title }) => {
           alt="Contemplative Reptile"
           className={classes.media}
           height="200"
-          image="https://aussiepigfarmers.com.au/wp-content/uploads/2015/11/content-relaxed-animals-in-barn-rared-environment1.jpg"
+          image={require(`modules/assets/img/${image}`)}
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -43,7 +44,8 @@ const CardImage = ({ classes, title }) => {
 
 CardImage.propTypes = {
   classes: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 };
 
 export default withStyles(cardImageStyles)(CardImage);

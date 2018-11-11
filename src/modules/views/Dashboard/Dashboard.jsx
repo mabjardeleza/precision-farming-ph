@@ -36,13 +36,9 @@ import CardFooter from "../../components/Card/CardFooter.jsx";
 import ProgressBar from "../../components/ProgressBar/ProgressBar.jsx";
 import CardImage from "../../components/CardImage/CardImage.jsx";
 
-import { bugs, website, server } from "../../variables/general.jsx";
+import { bugs, website } from "../../variables/general.jsx";
 
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
-} from "../../variables/charts.jsx";
+import { dailySalesChart } from "../../variables/charts.jsx";
 import { SENSOR_DATA } from "../../constants";
 
 import dashboardStyle from "../../assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
@@ -124,7 +120,9 @@ class Dashboard extends React.Component {
       <div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
-            <ProgressBar percentage={progress.progress} />
+            <div className={classes.progressBarContainer}>
+              <ProgressBar percentage={progress.progress} />
+            </div>
           </GridItem>
         </GridContainer>
         <GridContainer>

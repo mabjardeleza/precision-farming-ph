@@ -1,7 +1,7 @@
 export const OVERVIEW = {
   body: JSON.stringify({
     status: {
-      progress: 40,
+      progress: 80,
       status: "Okay"
     },
     daily: [

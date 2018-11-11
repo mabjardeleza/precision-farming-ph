@@ -4,7 +4,7 @@ const progressBarStyle = {
     height: "25px",
     width: "80%",
     borderRadius: "55px",
-    margin: "25px auto",
+    margin: "75px auto",
     backgroundColor: "lightgray"
   },
   progressBarFiller: {
