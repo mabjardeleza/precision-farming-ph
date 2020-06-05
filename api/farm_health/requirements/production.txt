@@ -23,7 +23,7 @@ django-environ==0.4.5
 django-model-utils==3.1.2
 django-redis==4.9.0
 django-storages[boto3]==1.7.1
-django==2.1.2
+django==2.2.13
 djangorestframework==3.9.0
 docutils==0.14            # via botocore
 gunicorn==19.9.0
