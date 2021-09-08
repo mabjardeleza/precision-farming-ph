@@ -33,7 +33,7 @@ jinja2==2.10              # via coreschema
 jmespath==0.9.3           # via boto3, botocore
 markupsafe==1.1.0         # via jinja2
 oauthlib==2.1.0           # via requests-oauthlib
-pillow==5.3.0
+pillow==8.3.2
 psycopg2==2.7.4
 pycparser==2.19           # via cffi
 python-dateutil==2.7.5    # via botocore
